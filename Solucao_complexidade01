@@ -1,1 +1,27 @@
 
+Apresente a solução de complexidade para os métodos construídos nos trabalhos
+práticos 1 e 2.
+
+A - Considere as comparações como operação relevante para os métodos do trabalhos
+pratico 1.
+
+Declarações -> 1 + 1 + 1
+Primeiro if -> n(n-1) = n²-n
+         for -> 2(n+1) = 2n +2
+         if -> n(n-1) = n²-n
+         else if -> n(n-1) = n²-n
+     else if -> n(n-1) = n²-n
+        if -> n(n-1) = n²-n
+        for -> 2(n+1) = 2n +2
+        else if -> n(n-1) = n²-n 
+     else if -> n(n-1) = n²-n
+        if -> n(n-1) = n²-n
+          for -> 2(n+1) = 2n +2
+          if -> n(n-1) = n²-n
+        else if -> n(n-1) = n²-n
+        
+        
+S(n) = 3+n²-n+2n+2+n²-n+n²-n+n²-n+n²-n+2n+2+n²-n+n²-n+n²-n+2n+2+n²-n+n²-n=
+S(n) = 3+3(2n+2)+10(n²-n)=
+S(n) = 3+6n+6+10n²-10n=
+S(n) = 9+10n²-4n
