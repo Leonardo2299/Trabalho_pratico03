@@ -25,3 +25,143 @@ S(n) = 3+n²-n+2n+2+n²-n+n²-n+n²-n+n²-n+2n+2+n²-n+n²-n+n²-n+2n+2+n²-n+n�
 S(n) = 3+3(2n+2)+10(n²-n)=
 S(n) = 3+6n+6+10n²-10n=
 S(n) = 9+10n²-4n
+
+
+
+C – Construa um algoritmo para representar contabilizar e apresentar na tela a
+quantidade de operações realizadas para os itens A e B.
+
+- A variável "cont", no algoritmo abaixo irá somar "1" toda vez que o programa passar por um if, else if e for.
+E no final do program irá imprimir o resultado.
+
+
+package contabilizador;
+
+import java.util.Scanner;
+
+public class Contabilizador {
+
+    
+      
+    
+    public static void main(String[] args) {
+       Aluno[] vetor = new Aluno[5];
+        
+       vetor[0] = new Aluno("Caio", 15, "01/01/1990");
+       vetor[1] = new Aluno("Felipe", 98, "02/02/1991");
+       vetor[2] = new Aluno("Maria", 130, "03/03/1992");
+       vetor[3] = new Aluno("Nazaré", 32, "04/04/1993");
+       vetor[4] = new Aluno("Viviane", 25, "05/05/1994");
+       
+      
+      System.out.println("Nome do Aluno: " +vetor[0].getNome() +"\n" + "RA: " + vetor[0].getRA() + "\n" + "Data de Nascimento: " + vetor[0].getDataNascimento() + "\n");
+      System.out.println("Nome do Aluno: " +vetor[1].getNome() +"\n" + "RA: " + vetor[1].getRA() + "\n" + "Data de Nascimento: " + vetor[1].getDataNascimento() + "\n");
+      System.out.println("Nome do Aluno: " +vetor[2].getNome() +"\n" + "RA: " + vetor[2].getRA() + "\n" + "Data de Nascimento: " + vetor[2].getDataNascimento() + "\n");
+      System.out.println("Nome do Aluno: " +vetor[3].getNome() +"\n" + "RA: " + vetor[3].getRA() + "\n" + "Data de Nascimento: " + vetor[3].getDataNascimento() + "\n");
+      System.out.println("Nome do Aluno: " +vetor[4].getNome() +"\n" + "RA: " + vetor[4].getRA() + "\n" + "Data de Nascimento: " + vetor[4].getDataNascimento() + "\n");
+      
+      int cont=0;
+          Scanner in = new Scanner(System.in);
+   
+        // declaracao de variavel
+        int num =0;
+        char carac;
+        String nom;
+        //Procurando um aluno pelo RA
+        System.out.println("Deseja procurar um aluno pelo RA? [S/N]");
+        carac = in.next().charAt(0); 
+        if (carac == 'S'){
+            System.out.println("Qual o RA que deseja procurar?");
+            num = in.nextInt();
+            cont+=1;
+            // leitura do vetor
+            for(int i = 0; i < vetor.length; i++){
+           // se existir no vetor o número digitado
+           cont+=1;
+            if(vetor[i].getRA() == num){
+                System.out.println("Aluno encontrado: \n" +"Nome: " + vetor[i].getNome() +"\n"+ "RA: " +vetor[i].getRA()+ "\n"+ "Data de Nascimento: " +vetor[i].getDataNascimento());
+                cont+=1;
+                break;
+                
+            }  
+            // se não existir...
+            else if(i == vetor.length-1){
+                System.out.println("Não existe nenhum aluno com este RA cadastrado");
+                cont+=1;
+                }
+            }
+        }
+        else if (carac == 'N'){
+            System.out.println("Deseja procurar um aluno pelo nome? [S/N]");
+            carac = in.next().charAt(0); 
+            cont+=1;
+                if (carac == 'S'){
+                    System.out.println("Qual nome do aluno que deseja procurar?");
+                    nom = in.next().toString();
+                    cont+=1;
+                    //leitura do vetor
+                    for(int i = 0; i < vetor.length; i++){
+                        cont+=1;
+                    // se existir no vetor o número digitado
+                    if(vetor[i].getNome().equals(nom)){
+                    System.out.println("Aluno encontrado: \n" +"Nome: " + vetor[i].getNome() +"\n"+ "RA: " +vetor[i].getRA()+ "\n"+ "Data de Nascimento: " +vetor[i].getDataNascimento());
+                    cont+=1;
+                    break;
+                    }
+                    // se não existir...
+                    else if(i == vetor.length-1){
+                        cont+=1;
+                    System.out.println("Não existe nenhum aluno com este nome cadastrado");
+                    }
+                    }    
+                }
+        }
+        else if (carac == 'N'){
+            cont+=1;
+                System.out.println("Fim do progrma");
+        }
+    System.out.println("Deseja remover um aluno? [S/N]");
+                carac = in.next().charAt(0); 
+                if (carac == 'S'){
+                    cont+=1;
+                    System.out.println("Digite um nome de aluno para ser removido?");
+                    nom = in.next().toString();
+                    System.out.println("Aluno removido!");
+                    for(int i = 0; i < vetor.length; i++){
+                    if (vetor[i].getNome().equals(nom)){
+                        cont+=1;
+                    remove(vetor[i]);
+                    
+                        }
+                    }    
+                }
+                else if (carac == 'N'){
+                    System.out.println("Fim do programa");
+                    cont+=1;
+                }
+                System.out.println("contador = " + cont);
+    }
+    public static void selectionSort( Aluno[] vetor )
+   {
+    // Encontre a referência de string que deve ir em cada célula de 
+  // a matriz, da célula 0 até o final 
+  for ( int j = 0; j <vetor.length-1; j ++)
+     {
+       // Find min: o índice da referência de string que deve entrar na célula j. 
+  // Procure nas cadeias não classificadas (aquelas em j ou mais) a que é a primeira em ordem lexicográfica 
+  int min = j;
+       for ( int i = j + 1; i <vetor.length; i ++)
+         if (vetor[i].compareTo(vetor[min]) <0) 
+             min = i;  
+
+       // Troque a referência em j pela referência em min  
+  Aluno temp = vetor [j];
+       vetor [j]= vetor [min];
+       vetor [min] = temp;
+     }
+  
+   } 
+       private static void remove(Aluno aluno) {
+       aluno.remove(aluno);}
+}
+    
