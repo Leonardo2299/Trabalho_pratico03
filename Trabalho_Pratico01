@@ -1,0 +1,118 @@
+package trabalhopratico1;
+
+
+import java.util.Scanner;
+
+/**
+ *
+ * @author Léo
+ */
+public class TrabalhoPratico1 {
+    
+    
+    public static void main(String[] args) {
+       Aluno[] vetor = new Aluno[5];
+        
+       vetor[0] = new Aluno("Caio", 15, "01/01/1990");
+       vetor[1] = new Aluno("Felipe", 98, "02/02/1991");
+       vetor[2] = new Aluno("Maria", 130, "03/03/1992");
+       vetor[3] = new Aluno("Nazaré", 32, "04/04/1993");
+       vetor[4] = new Aluno("Viviane", 25, "05/05/1994");
+       
+      
+      System.out.println("Nome do Aluno: " +vetor[0].getNome() +"\n" + "RA: " + vetor[0].getRA() + "\n" + "Data de Nascimento: " + vetor[0].getDataNascimento() + "\n");
+      System.out.println("Nome do Aluno: " +vetor[1].getNome() +"\n" + "RA: " + vetor[1].getRA() + "\n" + "Data de Nascimento: " + vetor[1].getDataNascimento() + "\n");
+      System.out.println("Nome do Aluno: " +vetor[2].getNome() +"\n" + "RA: " + vetor[2].getRA() + "\n" + "Data de Nascimento: " + vetor[2].getDataNascimento() + "\n");
+      System.out.println("Nome do Aluno: " +vetor[3].getNome() +"\n" + "RA: " + vetor[3].getRA() + "\n" + "Data de Nascimento: " + vetor[3].getDataNascimento() + "\n");
+      System.out.println("Nome do Aluno: " +vetor[4].getNome() +"\n" + "RA: " + vetor[4].getRA() + "\n" + "Data de Nascimento: " + vetor[4].getDataNascimento() + "\n");
+      
+   
+          Scanner in = new Scanner(System.in);
+   
+        // declaracao de variavel
+        int num =0;
+        char carac;
+        String nom;
+        //Procurando um aluno pelo RA
+        System.out.println("Deseja procurar um aluno pelo RA? [S/N]");
+        carac = in.next().charAt(0); 
+        if (carac == 'S'){
+            System.out.println("Qual o RA que deseja procurar?");
+            num = in.nextInt();
+        
+            // leitura do vetor
+            for(int i = 0; i < vetor.length; i++){
+           // se existir no vetor o número digitado
+            if(vetor[i].getRA() == num){
+                System.out.println("Aluno encontrado: \n" +"Nome: " + vetor[i].getNome() +"\n"+ "RA: " +vetor[i].getRA()+ "\n"+ "Data de Nascimento: " +vetor[i].getDataNascimento());
+                break;
+            }  
+            // se não existir...
+            else if(i == vetor.length-1){
+                System.out.println("Não existe nenhum aluno com este RA cadastrado");
+                }
+            }
+        }
+        else if (carac == 'N'){
+            System.out.println("Deseja procurar um aluno pelo nome? [S/N]");
+            carac = in.next().charAt(0); 
+                if (carac == 'S'){
+                    System.out.println("Qual nome do aluno que deseja procurar?");
+                    nom = in.next().toString();
+                    //leitura do vetor
+                    for(int i = 0; i < vetor.length; i++){
+                    // se existir no vetor o número digitado
+                    if(vetor[i].getNome().equals(nom)){
+                    System.out.println("Aluno encontrado: \n" +"Nome: " + vetor[i].getNome() +"\n"+ "RA: " +vetor[i].getRA()+ "\n"+ "Data de Nascimento: " +vetor[i].getDataNascimento());
+                    break;
+                    }
+                    // se não existir...
+                    else if(i == vetor.length-1){
+                    System.out.println("Não existe nenhum aluno com este nome cadastrado");
+                    }
+                    }    
+                }
+        }
+        else if (carac == 'N'){
+                System.out.println("Fim do progrma");
+        }
+    System.out.println("Deseja remover um aluno? [S/N]");
+                carac = in.next().charAt(0); 
+                if (carac == 'S'){
+                    System.out.println("Digite um nome de aluno para ser removido?");
+                    nom = in.next().toString();
+                    System.out.println("Aluno removido!");
+                    for(int i = 0; i < vetor.length; i++){
+                    if (vetor[i].getNome().equals(nom)){
+                    remove(vetor[i]);
+                    
+                        }
+                    }    
+                }
+                else if (carac == 'N'){
+                    System.out.println("Fim do programa");
+                }
+    }
+    public static void selectionSort( Aluno[] vetor )
+   {
+    // Encontre a referência de string que deve ir em cada célula de 
+  // a matriz, da célula 0 até o final 
+  for ( int j = 0; j <vetor.length-1; j ++)
+     {
+       // Find min: o índice da referência de string que deve entrar na célula j. 
+  // Procure nas cadeias não classificadas (aquelas em j ou mais) a que é a primeira em ordem lexicográfica 
+  int min = j;
+       for ( int i = j + 1; i <vetor.length; i ++)
+         if (vetor[i].compareTo(vetor[min]) <0) 
+             min = i;  
+
+       // Troque a referência em j pela referência em min  
+  Aluno temp = vetor [j];
+       vetor [j]= vetor [min];
+       vetor [min] = temp;
+     }
+  
+   } 
+       private static void remove(Aluno aluno) {
+       aluno.remove(aluno);}
+}
