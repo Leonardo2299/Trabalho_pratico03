@@ -16,3 +16,88 @@ S(n) = 3 + n²-n + n²-n + n²-n + n²-n + n²-n + n²-n=
 S(n) = 3+6(n²-n)=
 S(n) = 3+6n²-6n
 
+C – Construa um algoritmo para representar contabilizar e apresentar na tela a
+quantidade de operações realizadas para os itens A e B.
+
+- A variável "cont", irá contar "+1" toda vez que houver uma interação no programa.
+
+package atividade01;
+
+/**
+ *
+ * @author Léo
+ */
+public class Atividade01 {
+
+    public static void main(String[] args) {
+    
+        int cont = 0;      
+     
+        NoBB arvore = new NoBB(10);
+        NoBB.montaArvore(arvore, null);
+        
+        NoBB n5 = new NoBB(5);
+        NoBB.montaArvore(n5, arvore);
+        
+        NoBB n20 = new NoBB(20);
+        NoBB.montaArvore(n20, arvore);
+        
+        NoBB n33 = new NoBB(33);
+        NoBB.montaArvore(n33, arvore);
+        
+        NoBB n1 = new NoBB(11);
+        NoBB.montaArvore(n1, arvore);
+        
+        NoBB n2 = new NoBB(2);
+        NoBB.montaArvore(n2, arvore);
+        
+        NoBB n7 = new NoBB(7);
+        NoBB.montaArvore(n7, arvore);
+        
+        NoBB n30 = new NoBB(30);
+        NoBB.montaArvore(n30, arvore);
+        
+        System.out.println("Pre-ordem:");
+        NoBB.imprimirPreOrdem(arvore);
+        System.out.println(" ");
+        cont+=1;
+        
+        System.out.println("Em-ordem:");
+        NoBB.imprimirEmOrdem(arvore);
+        System.out.println(" ");
+        cont+=1;
+        
+        System.out.println("Pos-ordem:");
+        NoBB.imprimirPosOrdem(arvore);
+        System.out.println(" ");
+        cont+=1;
+
+        //NoBB.removerNo (arvore,20);
+        //NoBB.removerNo (arvore,7);
+        //NoBB.removerNo (arvore,2);
+        //NoBB.removerNo (arvore,1);
+        //NoBB.removerNo (arvore,33);
+        /*
+        System.out.println("DEPOIS DA REMOÇÃO");
+        
+        //NoBB n14 = new NoBB(14);
+        //NoBBmontaARvore (n14, arvore);
+        
+        System.out.println("Pre-ordem:");
+        NoBB.imprimirPreOrdem(arvore);
+        System.out.println(" ");
+        cont+=1;
+        
+        System.out.println("Em-ordem:");
+        NoBB.imprimirEmOrdem(arvore);
+        System.out.println(" ");
+        cont+=1;
+        
+        System.out.println("Pos-ordem:");
+        NoBB.imprimirPosOrdem(arvore);
+        System.out.println("");
+        cont+=1;
+*/        
+    }
+    
+}
