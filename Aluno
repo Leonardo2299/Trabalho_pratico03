@@ -1,0 +1,49 @@
+package trabalhopratico1;
+
+/**
+ *
+ * @author Léo
+ */
+public class Aluno {
+   private  String nome;
+   private  int RA = 0;
+   private  String DataNascimento;
+
+    public Aluno(String nome, int RA, String DataNascimento) {
+        this.nome = nome;
+        this.RA = RA;
+        this.DataNascimento = DataNascimento;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public int getRA() {
+        return RA;
+    }
+
+    public void setRA(int RA) {
+        this.RA = RA;
+    }
+
+    public String getDataNascimento() {
+        return DataNascimento;
+    }
+
+    public void setDataNascimento(String DataNascimento) {
+        this.DataNascimento = DataNascimento;
+    }
+
+    static void remove(Aluno aluno) {
+    aluno.remove(aluno);
+    }
+
+    int compareTo(Aluno aluno) {
+        throw new UnsupportedOperationException("Not supported yet."); 
+    }
+}
